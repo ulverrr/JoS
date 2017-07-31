@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="portlet-title">
+    <div class="caption">
+        <i class=" icon-layers font-green"></i>
+        <span class="caption-subject font-green sbold uppercase">The Beginning Of Training</span>
+    </div>
+</div>
+<div class="portlet-body">
+    <md-content ng-controller="StartStudyCtrl as vm" layout-padding ng-cloak>
+        <div layout-gt-xs="row">
+            <div flex-gt-xs>
+                <h4>Enter start date: </h4>
+                <md-datepicker ng-model="vm.startStudy.studyDate" md-is-open="vm.isOpen" md-min-date="vm.today" md-current-view="year" md-placeholder="Enter date"></md-datepicker>
+                <md-button ng-click="vm.addDate(vm.startStudy)" class="btn btn-info">OK</md-button>
+            </div>
+        </div>
+    </md-content>
+</div>

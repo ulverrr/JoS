@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html  ng-app="JoSApp">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JoS</title>
+    
+    @Styles.Render("~/Content/angular-material")
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/toastr")
+    @Scripts.Render("~/bundles/modernizr")
+    @Styles.Render("~/Content/metronic")
+</head>
+
+<body >
+<!-- BEGIN CONTAINER -->
+<div class="wrapper">
+    <!-- BEGIN HEADER -->
+    <header class="page-header">
+        <nav class="navbar mega-menu" role="navigation">
+            <div class="container-fluid">
+                <div class="clearfix">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="toggle-icon">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </span>
+                    </button>
+                    <!-- End Toggle Button -->
+
+                    <!-- BEGIN TOPBAR ACTIONS -->               
+                    @Html.Partial("_LoginPartial")              
+                    <!-- END TOPBAR ACTIONS -->
+                </div>
+                <!-- BEGIN HEADER MENU -->
+                <div class="nav-collapse navbar-collapse navbar-responsive-collapse collapse" aria-expanded="true">
+                    <ul class="nav navbar-nav">
+                        <li>
+                            <a href="@Url.Action("Index", "Home")">
+                                <i class="icon-home"></i> Home
+                            </a>
+                        </li>
+                        <li>
+                            @if(User.IsInRole("Admin"))
+                            {
+                                <a href="@Url.Action("Index", "Admin")">
+                                    <i class="icon-bar-chart"></i>Administration
+                                </a>
+                            }
+                        </li>                    
+                    </ul>
+                </div>
+                <!-- END HEADER MENU -->
+            </div>
+            <!--/container-->
+        </nav>
+    </header>
+    <!-- END HEADER -->
+    <div class="container-fluid">
+        <div class="page-content">
+            <!-- BEGIN PAGE BASE CONTENT -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="portlet light bordered">
+                        @RenderBody()
+                    </div>
+                </div>
+            </div>
+            <!-- END PAGE BASE CONTENT -->
+        </div>
+    </div>
+</div>
+<!-- END CONTAINER -->
+    
+@Scripts.Render("~/bundles/angularjs")
+@Scripts.Render("~/bundle/material")
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/toastr")
+@Scripts.Render("~/bundles/bootstrap")
+
+@RenderSection("scripts", required: false)
+    
+@Scripts.Render("~/bundles/metronic")
+
+</body>
+</html>

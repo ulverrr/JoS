@@ -1,0 +1,22 @@
+﻿@using Microsoft.AspNet.Identity
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="topbar-actions">                
+            <!-- BEGIN USER PROFILE -->
+            <div class="btn-group-img btn-group">
+                <button type="button" class="btn btn-sm md-skip">
+                    <span>Hi, @User.Identity.GetUserName()!</span>
+                </button>                   
+            </div>
+            <!-- END USER PROFILE -->
+            <!-- BEGIN QUICK SIDEBAR TOGGLER -->
+            <button type="button" class="quick-sidebar-toggler md-skip" onclick="javascript:document.getElementById('logoutForm').submit();">
+                <i class="icon-logout"></i>
+            </button>
+            <!-- END QUICK SIDEBAR TOGGLER -->
+        </div>
+    }
+}

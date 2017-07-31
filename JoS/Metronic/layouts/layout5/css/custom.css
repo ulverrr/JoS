@@ -1,0 +1,18 @@
+#logoutForm button {
+    top: 0;
+}
+
+div.wrapper {
+    margin: 0;
+}
+
+.page-content {
+    padding-top: 20px;
+    min-height: 0;
+}
+
+html.md-default-theme, html, body.md-default-theme, body {
+    background: rgb(47, 55, 62);
+    height: auto !important;
+    min-height: 100% !important;
+}
